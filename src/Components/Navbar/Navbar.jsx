@@ -17,7 +17,7 @@ export default function Navbar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{bgcolor:'black'}}>
+            <AppBar position="static" sx={{bgcolor:'#333','--Grid-borderWidth': '1px', borderBottom: 'var(--Grid-borderWidth) solid', borderColor:'white'}} >
                 <Toolbar sx={{ justifyContent: 'space-around' }}>
 
 
@@ -28,8 +28,8 @@ export default function Navbar() {
                         <Link component={tolink} to={'/'} underline='none' color='inherit' > Home </Link>
                         <Link component={tolink} to={'/'} underline='none' color='inherit' > Shope </Link>
                         <Link component={tolink} to={'/'} underline='none' color='inherit' > About </Link>
-                        <Link component={tolink} to={'/'} underline='none' color='inherit' > Blog </Link>
-                        <Link component={tolink} to={'/'} underline='none' color='inherit' > Contact </Link>
+                        <Link component={tolink} to={'/Login'} underline='none' color='inherit' > Log in </Link>
+                        <Link component={tolink} to={'/Register'} underline='none' color='inherit' > Register </Link>
                     </Box>
                     <Box sx={{ display: 'flex', gap: 2 }}>
                         <IconButton sx={{ color: 'white' }}>
