@@ -1,10 +1,7 @@
-
 import * as yup from "yup"
 import { object } from 'yup';
 
- export const RegisterrSchema = object({
-    userName: yup.string().required("User Name is required").min(3, "username at least 3 characters "),
-    fullName: yup.string().required("full Name is required"),
+ export const LoginSchema = object({
     email: yup.string().email("must have a valid email").required("email is required"),
     password: yup.string().required().min(6, "at least 6 characters")
       .matches(/[A-Z]/, "must contains at least one Upper case letter")
@@ -13,4 +10,3 @@ import { object } from 'yup';
       .matches(/[@#$!&%*?]/, "must contains at least one special character")
 
   });
-

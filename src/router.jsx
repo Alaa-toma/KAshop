@@ -4,6 +4,7 @@ import Home from "./Pages/Home/Home";
 import Cart from "./Pages/Cart/Cart";
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
+import ChangePass from "./Pages/Auth/ChangePass";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: '/Register', 
                 element: <Register />
+            },
+            {
+                path: '/ChangePass', 
+                element: <ChangePass/>
             }
 
         ]

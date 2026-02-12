@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { object } from 'yup';
 import { Email } from '@mui/icons-material';
-import {RegisterrSchema} from './../../Validation/registerSchema'
+import {RegisterrSchema} from './../../Validation/Registrationschema'
 
 
 export default function Register() {
@@ -17,7 +17,7 @@ export default function Register() {
 
 
 
-  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(RegisterrSchema) });
+  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(RegisterrSchema), mode:'onBlur' });
 
   const registerfunction = async (values) => {
     console.log("values", values);
@@ -33,10 +33,10 @@ export default function Register() {
 
 
 
-  return <Box component={'section'} textAlign={'center'} py={5} bgcolor={'#333333'} display={'flex'} justifyContent={'center'} >
+  return <Box component={'section'} textAlign={'center'} py={10} bgcolor={'#333333'} display={'flex'} justifyContent={'center'} >
 
     <Box component={'form'} onSubmit={handleSubmit(registerfunction)} display={'flex'} flexDirection={'column'} gap={3} alignItems={'center'}
-      bgcolor={'#3C3C3D'} width={'50%'} py={5} sx={{ borderRadius: 5 }}  >
+      bgcolor={'#3C3C3D'} width={'50%'} py={3} sx={{ borderRadius: 5 }}  >
       <Typography component={'h1'} color='white' variant='h1'>Sign Up</Typography>
       <Box display={'flex'} gap={3}>
         <Typography component={'span'} color='white'>Already have an account?</Typography>
@@ -50,7 +50,7 @@ export default function Register() {
       <TextField {...register('password')} label="Password" variant="filled" error={errors.password} helperText={errors.password?.message} sx={{ width: '90%', bgcolor: '#C0C3C7', color: 'black', borderRadius: 2 }} />
       <TextField {...register('phoneNumber')} label="Phone" variant="filled" error={errors.phoneNumber} helperText={errors.phoneNumber?.message} sx={{ width: '90%', bgcolor: '#C0C3C7', color: 'black', borderRadius: 2 }} />
 
-      <Button variant="contained" type='submit'>Create</Button>
+      <Button variant="contained" type='submit' sx={{background:'#57a0ce'}} >Create</Button>
 
     </Box>
 
