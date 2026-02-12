@@ -17,7 +17,7 @@ export default function Navbar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{bgcolor:'#333','--Grid-borderWidth': '1px', borderBottom: 'var(--Grid-borderWidth) solid', borderColor:'white'}} >
+            <AppBar position="static" sx={{ bgcolor: '#333', '--Grid-borderWidth': '1px', borderBottom: 'var(--Grid-borderWidth) solid', borderColor: 'white' }} >
                 <Toolbar sx={{ justifyContent: 'space-around' }}>
 
 
@@ -36,7 +36,7 @@ export default function Navbar() {
                             <FavoriteBorderIcon />
                         </IconButton>
                         <IconButton sx={{ color: 'white' }}>
-                            <ShoppingCartIcon  />
+                            <ShoppingCartIcon />
                         </IconButton>
 
                         <IconButton sx={{ color: 'white' }}>
