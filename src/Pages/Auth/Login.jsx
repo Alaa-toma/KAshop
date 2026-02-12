@@ -1,6 +1,6 @@
 import { Box, Typography, TextField, Button } from '@mui/material'
 import axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link as tolink } from 'react-router-dom'
 import { Link } from '@mui/material';
@@ -13,20 +13,23 @@ export default function Login() {
 
 
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(LoginSchema), mode: 'onBlur' });
+const [serverError, setServerError] = useState([]);
 
-  const Loginfunction = async (values) => {
+const Loginfunction = async (values) => {
     console.log("values", values);
 
     try {
       const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Login`, values);
       console.log(response);
     } catch (error) {
-      console.log("error , ", error);
+      console.log("catch err",error.response.data.errors )
+      setServerError(error.response.data.errors);
     }
 
   }
 
 
+  
 
 
   return (
@@ -41,10 +44,10 @@ export default function Login() {
         <TextField {...register('email')} label="Email" variant="filled" error={errors.email} helperText={errors.email?.message} sx={{ width: '90%', bgcolor: '#C0C3C7', color: 'black', borderRadius: 2 }} />
         <TextField {...register('password')} label="Password" variant="filled" error={errors.password} helperText={errors.password?.message} sx={{ width: '90%', bgcolor: '#C0C3C7', color: 'black', borderRadius: 2 }} />
 
-        <Button variant="contained" type='submit' sx={{ background: '#57a0ce' }} >Log In</Button>
+        <Button variant="contained" type='submit' sx={{ background: '#57a0ce', paddingX:'5%', paddingY:'2%', fontWeight:'900' }} >Log In</Button>
 
 
-        <Box display={'flex'} gap={60} >
+        <Box  sx={{display:'flex', justifyContent:'space-between', width:'90%'}} >
           
           <Link component={tolink} to={'/ChangePass'} color='#fff' >Forgot your password?  </Link>
           <Link component={tolink} to={'/Register'} color='#fff' >Sign Up  </Link>
