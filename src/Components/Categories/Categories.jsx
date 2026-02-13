@@ -17,7 +17,7 @@ export default function Categories() {
     staleTime:1000*60*5 /* stay in cash for 5 min  */
    });
 
-if(isError) { return <Box color={'red'}> {error} </Box> }
+if(isError) { return <Box color={'red'}> {error.message} </Box> }
 if(isLoading){
     return <CircularProgress />
 }
