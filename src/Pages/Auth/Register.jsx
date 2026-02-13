@@ -9,6 +9,7 @@ import * as yup from "yup"
 import { object } from 'yup';
 import { Email } from '@mui/icons-material';
 import { RegisterrSchema } from './../../Validation/Registrationschema'
+import axiosInstanse from '../../Api/AxiosInstanse';
 
 
 export default function Register() {
@@ -24,7 +25,7 @@ export default function Register() {
     console.log("values", values);
 
     try {
-      const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Register`, values);
+      const response = await axiosInstanse.post(`/auth/Account/Register`, values);
       console.log(response);
     } catch (error) {
       console.log("catch err", error.response.data.errors)

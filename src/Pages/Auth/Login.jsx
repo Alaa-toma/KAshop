@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { Email } from '@mui/icons-material';
 import { LoginSchema } from './../../Validation/Loginschema'
+import axiosInstanse from '../../Api/AxiosInstanse';
 
 export default function Login() {
 
@@ -19,7 +20,7 @@ const Loginfunction = async (values) => {
     console.log("values", values);
 
     try {
-      const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Login`, values);
+      const response = await axiosInstanse.post(`/auth/Account/Login`, values);
       console.log(response);
     } catch (error) {
       console.log("catch err",error.response.data.errors )
